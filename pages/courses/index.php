@@ -36,13 +36,11 @@ echo '<div class="content">';
         }
 
         .show_paid a {
-
             padding: 5px 10px;
             background: #fff;
             color: #333;
             border: 1px solid #333;
             border-radius: 5px;
-
         }
 
         .show_paid a.active {
@@ -79,38 +77,60 @@ echo '<div class="content">';
     <div class="single-line add-form"">
     <div class="">
         <div class="brd c-left">
-            <p>Add New University</p> <br>
+            <p>Add New Course</p> <br>
             <form action="" method="post">
 
                 <div class="grid-container">
                     <div class="grid-item">
-                        <label for="name">University Name</label>
-                        <input name="name" type="text" placeholder="Enter university name" required/></div>
+                        <label for="name">Course Name</label>
+                        <input name="name" type="text" placeholder="Enter course name" required/></div>
                     <div class="grid-item">
-                        <label for="name">Address</label>
-                        <input name="name" type="text" placeholder="Enter address" required/></div>
+                        <label for="section">Section</label>
+                        <select id="section" name="section" required>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                        </select></div>
+                    <div class="grid-item">
+                        <label for="time">Course Time</label>
+                        <input name="time" type="text" placeholder="Enter course time" required/></div>
 
                     <div class="grid-item">
-                        <label for="type">Type</label>
-                        <select id="type" name="section" required>
-                            <option>Private</option>
-                            <option>Govt</option>
+                        <label for="name">Room</label>
+                        <input name="room" type="text" placeholder="Enter class room" required/>
+                    </div>
+
+                    <div class="grid-item">
+                        <label for="university">University</label>
+                        <select id="university" name="section" required>
+                            <option>North South University</option>
+                            <option>American International University</option>
+                            <option>Independent University</option>
+                            <option>BRAC University</option>
+                            <option>East West University</option>
+                            <option>Dhaka College</option>
                         </select>
                     </div>
-                    <div class="grid-item">
-                        <label for="lat">Latitude</label>
-                        <input name="lat" type="text" placeholder="Enter latitude" required/>
-                    </div>
 
                     <div class="grid-item">
-                        <label for="lon">Longitude</label>
-                        <input name="lon" type="text" placeholder="Enter longitude" required/>
-                    </div>
-
-                    <div class="grid-item">
-                        <input style="width: 100%; margin-top: 26px" type="submit" name="add-university"
-                               value="Add University"
-                               required/></div>
+                        <input style="width: 100%; margin-top: 26px" type="submit" name="add-course" value="Add Course" required/></div>
                 </div>
         </div>
 
@@ -122,18 +142,19 @@ echo '<div class="content">';
     <div class="single-line">
         <div class="">
             <div class="brd c-left list-holder village-list">
-                <p>List of universities</p>
+                <p>List of Course</p>
                 <div class="clear"></div>
 
                 <br>
 
                 <table id="list_table">
                     <tr>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Latitude</th>
-                        <th>Longitude</th>
-                        <th>Type</th>
+                        <th>Course Initial</th>
+                        <th>Section</th>
+                        <th>Faculty</th>
+                        <th>Time</th>
+                        <th>Room</th>
+                        <th>University</th>
                         <th>Action</th>
                         <th>Delete</th>
                     </tr>
@@ -142,7 +163,7 @@ echo '<div class="content">';
                     <?php
 
 
-                    $total_results = $db->getValue("universities", "count(id)");
+                    $total_results = $db->getValue("advising", "count(id)");
                     if ($total_results > 0) {
                         $perpage = 25;
                         $page = (int)$_GET['p'] == 0 ? 1 : (int)$_GET['p'];
@@ -154,16 +175,19 @@ echo '<div class="content">';
                         $show_pages = "<div class='lspages'>$s_pages->pages</div>";
 
 
-                        $sites = $db->rawQuery('SELECT * FROM universities ORDER BY name DESC LIMIT ?,?', array($start, $perpage));
+                        $sites = $db->rawQuery('SELECT * FROM advising LIMIT ?,?', array($start, $perpage));
 
                         foreach ($sites as $sp) {
-                            echo '<tr> <td> ' . $sp['name'] . ' </td>';
-                            echo '<td> ' . $sp['address'] . '</td>';
-                            echo '<td> ' . $sp['latitude'] . '</td>';
-                            echo '<td> ' . $sp['longitude'] . '</td>';
-                            echo '<td> ' . (($sp['is_govt'] == 1) ? 'Government' : 'Private') . '</td>';
-                            echo '<td><span class="action3" onclick=\'deleteReview("",this);\'>Edit</span></td>';
-                            echo '<td><span class="action2" onclick=\'deleteReview("",this);\'>Delete</span></td>';
+                            echo '<tr> <td> ' . $sp['course'] . ' </td>';
+                            echo '<td> ' . $sp['section'] . ' </td>';
+                            echo '<td> ' . $sp['faculty'] . ' </td>';
+                            echo '<td> ' . $sp['time'] . ' </td>';
+                            echo '<td> ' . $sp['room'] . ' </td>';
+                            echo '<td> North South University</td>';
+                            echo '<td><span class="action3" onclick=\'editById("",this);\'>Edit</span></td>';
+                            echo '<td><span class="action2" onclick=\'deleteById("",this);\'>Delete</span></td>';
+                            echo '</tr>';
+
                         }
                     }
 
@@ -183,40 +207,11 @@ echo '<div class="content">';
 
     <script>
 
-        function markApproved(id, approved, dID) {
 
-
-            dID.innerHTML = "<i class='fas fa-spinner'></i>";
-
-            var xmlHttp = new XMLHttpRequest();
-            xmlHttp.onreadystatechange = function () {
-                if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
-
-                    if (approved == 0) {
-                        dID.innerHTML = "Approve";
-                        dID.className = "action";
-
-
-                    } else {
-
-                        dID.innerHTML = "Disapprove";
-
-                        dID.className = "action3";
-                    }
-
-
-                }
-            }
-            xmlHttp.open("GET", "/evaly/api/mark-approved.php?type=shop&id=" + id + "&approved=" + approved, true); // true for asynchronous
-            xmlHttp.send(null);
-
-        }
-
-
-        function deleteReview(id, dID) {
+        function deleteById(id, dID) {
 
             var txt;
-            var r = confirm("Are you sure you want to delete this review?");
+            var r = confirm("Are you sure you want to delete this course?");
             if (r == true) {
 
             } else {

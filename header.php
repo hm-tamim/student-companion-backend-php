@@ -109,6 +109,15 @@ require_once 'includes/func.php';
                     </a>
                 </li>
 
+                <li class="nav-item mT-30 active">
+                    <a class="sidebar-link" href="/pages/courses">
+                            <span class="icon-holder">
+                                <i class="far fa-book-alt"></i>
+                            </span>
+                        <span class="title">Courses</span>
+                    </a>
+                </li>
+
 
                 <li class="nav-item mT-30 active">
                     <a class="sidebar-link" href="/pages/teachers/">
