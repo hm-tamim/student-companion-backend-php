@@ -1,0 +1,74 @@
+
+
+SetEnvIf Origin "^(http?://localhost|https://[a-z]+\.my\.base\.domain)$" ORIGIN_SUB_DOMAIN=$1
+Header set Access-Control-Allow-Origin: "%{ORIGIN_SUB_DOMAIN}e" env=ORIGIN_SUB_DOMAIN
+
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+
+
+RewriteEngine On
+
+
+RewriteBase /
+
+
+RewriteRule ^403.shtml$ 404.php
+
+
+RewriteRule ^403.php$ 404.php
+
+RewriteRule ^logout$ user/logout.php
+
+RewriteRule ^login$ user/login.php
+
+RewriteRule ^sign-up$ user/index.php
+
+
+# RewriteRule ^books/download/(.+)$ books/download.php?link=$1
+
+
+#Youtube 
+
+RewriteCond %{REQUEST_URI}  ^/videos$
+RewriteRule ^(.*)$ /videos/ [L,R=301]
+
+
+
+
+RewriteRule ^privacy-policy/$ privacy-policy.php
+
+RewriteRule ^muslim-ally-privacy-policy/$ muslim-ally-privacy-policy.php
+
+RewriteRule ^video-sitemap.xml$ tube-sitemap.php
+
+
+RewriteRule ^videos/$ tube-index.php
+
+RewriteRule ^videos/(.+)$ tube-index.php?q=$1
+RewriteRule ^open/(.+)$ tube-download.php?id=$1
+
+
+RewriteRule ^faculty/section/(.+)/(.+)$ faculty/index.php?course=$1&section=$2
+
+RewriteCond %{REQUEST_URI} !/section/
+RewriteRule ^faculty/(.+)/(.+)$ faculty/index.php?course=$1&faculty=$2
+
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^/(.*)/(.*)$
+
+RewriteRule ^(.+)$ search.php?query=$1
+
+ErrorDocument 404 /404.php
+
+ErrorDocument 403 /403.php
+
+php_value upload_max_filesize 20M
+php_value post_max_size 20M
+php_value max_execution_time 200
+php_value max_input_time 200

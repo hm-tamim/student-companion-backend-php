@@ -1,0 +1,13 @@
+[13-Sep-2018 16:00:41 America/New_York] PHP Notice:  Array to string conversion in /home/downbqfu/nsuer.club/app/weather/get-current.php on line 29
+[13-Sep-2018 16:00:41 America/New_York] PHP Notice:  Undefined offset: 0 in /home/downbqfu/nsuer.club/app/weather/get-current.php on line 46
+[13-Sep-2018 16:00:41 America/New_York] PHP Notice:  Undefined offset: 0 in /home/downbqfu/nsuer.club/app/weather/get-current.php on line 48
+[13-Sep-2018 16:00:41 America/New_York] PHP Notice:  Undefined offset: 0 in /home/downbqfu/nsuer.club/app/weather/get-current.php on line 51
+[13-Sep-2018 16:00:41 America/New_York] PHP Notice:  Undefined offset: 0 in /home/downbqfu/nsuer.club/app/weather/get-current.php on line 53
+[13-Sep-2018 16:00:41 America/New_York] PHP Notice:  Undefined offset: 0 in /home/downbqfu/nsuer.club/app/weather/get-current.php on line 55
+[19-Sep-2018 10:00:28 Asia/Dhaka] PHP Warning:  Invalid argument supplied for foreach() in /home/downbqfu/nsuer.club/app/weather/get-forecast.php on line 84
+[19-Sep-2018 10:00:44 Asia/Dhaka] PHP Warning:  Invalid argument supplied for foreach() in /home/downbqfu/nsuer.club/app/weather/get-current.php on line 85
+[19-Sep-2018 10:30:08 Asia/Dhaka] PHP Warning:  Invalid argument supplied for foreach() in /home/downbqfu/nsuer.club/app/weather/get-current.php on line 85
+[19-Sep-2018 11:00:13 Asia/Dhaka] PHP Warning:  Invalid argument supplied for foreach() in /home/downbqfu/nsuer.club/app/weather/get-current.php on line 85
+[19-Sep-2018 11:30:25 Asia/Dhaka] PHP Warning:  Invalid argument supplied for foreach() in /home/downbqfu/nsuer.club/app/weather/get-current.php on line 85
+[19-Sep-2018 12:00:14 Asia/Dhaka] PHP Warning:  Invalid argument supplied for foreach() in /home/downbqfu/nsuer.club/app/weather/get-current.php on line 85
+[19-Sep-2018 12:30:36 Asia/Dhaka] PHP Warning:  Invalid argument supplied for foreach() in /home/downbqfu/nsuer.club/app/weather/get-current.php on line 85

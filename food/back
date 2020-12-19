@@ -1,0 +1,519 @@
+<?php
+require_once'../lib/init.php';
+require_once'../includes/func.php';
+require_once'../lib/pagination.class.php';
+
+
+$title='NSUer.Club - Find & Vote Best Faculties, Calculate CGPA';
+include'../head.php';
+
+?>
+<div class="fac-container"><div class="mainn">
+
+<div>
+
+<?php
+
+$total_results=$db->getValue ("food", "count(id)");
+if($total_results > 0) {
+ 
+ 
+    $perpage = 25;
+    $page = (int)$_GET['p'] == 0 ? 1 : (int)$_GET['p'];
+    if($page > ceil($total_results/$perpage)) $page = ceil($total_results/$perpage);
+    $start = ($page-1)*$perpage;
+        $tpages = ceil($total_results/$perpage);
+    $s_pages = new pag($total_results,$page,$perpage);
+ 
+    $show_pages = "<div class='lspages'>$s_pages->pages</div>";
+
+
+ 
+    $sites=$db->ObjectBuilder()->rawQuery('SELECT * from food ORDER BY shop LIMIT ?,?',array($start,$perpage));
+
+
+
+
+$i = 0; 
+$count = 1;
+
+foreach($sites as $site){
+
+$i++;
+
+
+$fid = $site->id;
+$course = $site->shop;
+$faculty = $site->foods;
+$json = $faculty;
+
+$json = unserialize($json);
+
+if(sizeof($json)>0){
+
+echo'<div class="reviewBox">
+<div class="shopName"><span>'.$count.'</span><h3>'.$course.' 
+<p class="shopeVote">
+<a onClick="svote(this); return false;" rel="nofollow" class="like votel'.$voted.'" href="/vote.php?course='.$course.'&faculty='.$name.'">10</a>
+
+<a onClick="svote(this); return false;" rel="nofollow" class="dislike votel'.$voted.'" href="/vote.php?course='.$course.'&faculty='.$name.'">2</a>
+</p></h3></div>
+
+<div style="clear: both"></div>
+
+<div class="foodScroll f'.$count.'" id="f'.$count.'">
+<div class="shadow">';
+
+$c = 1;
+
+for($i=0;$i<sizeof($json);$i++){
+
+
+
+$name = $json[$i]['name'];
+$vote = $json[$i]['vote'];
+
+if(!empty($name)){
+
+$mou = $course.'_'.$name;
+$cou = $_COOKIE[$mou];
+
+if($cou>=1 || isset($_COOKIE[$mou]) && $_COOKIE[$mou] != 0){
+$voted = ' voted';
+$ted = 'd';
+}else{
+$voted = '';
+$ted = '';
+}
+
+$half = ceil(sizeof($json)/2);
+if($i==$half)
+echo'';
+
+echo '<div class="shadow foodItem" style="">
+
+<div class="thumbnail" style=""><img src="/images/food/'.$c.'.jpg"></div>
+
+<div class="innerTxt" style="padding: 10px;">
+
+<p class="foodName">
+<b>'.$cv.'</b> <a href="/faculty/'.$course.'/'.$name.'"'.ucwords($name).'">'.ucwords($name).'</a> 
+</p>
+
+<a onClick="svote(this); return false;" rel="nofollow" class="like votel'.$voted.'" href="/vote.php?course='.$course.'&faculty='.$name.'">'.$vote.'</a>
+
+<a onClick="svote(this); return false;" rel="nofollow" class="dislike votel'.$voted.'" href="/vote.php?course='.$course.'&faculty='.$name.'">'.$vote.'</a>
+
+<a class="commentIcon" style="float: right" href="comment"><i class="fa fa-comment-o"></i></a>
+
+
+</div>
+</div>';
+$c++;
+}
+
+}
+
+
+}
+
+
+
+echo '
+
+
+<button class="scroller lefter" id="sLf'.$count.'" onClick="scrollLeftt(\'f'.$count.'\')"><i class="fa fa-chevron-left"></i></button>
+<button class="scroller" id="sRf'.$count.'" onClick="scrollRight(\'f'.$count.'\')"> <i class="fa fa-chevron-right"></i></button>
+</div></div></div>';
+
+
+$count++;
+}
+
+
+
+?>
+
+<script>
+function scrollRight(id){
+    $("."+id).animate({
+  scrollLeft:  '+=320px'
+}, 500);
+
+document.getElementById("sL"+id).classList.add('displayBock');
+}
+function scrollLeftt(id){
+    $("."+id).animate({
+  scrollLeft:  '-=320px'
+}, 500);
+}
+
+$(".foodScroll").scroll(function() {
+
+var id =  this.id;
+var newScrollLeft=$('#'+id).scrollLeft();
+      var divWidth = $('#'+id).outerWidth();
+      var scrollwidth =$('#'+id).get(0).scrollWidth;
+      if(newScrollLeft === scrollwidth - divWidth){
+        
+document.getElementById("sR"+id).classList.add('displayNone');
+      } else {
+
+document.getElementById("sR"+id).classList.remove('displayNone');
+}
+var pp = $("#"+id).scrollLeft();
+
+if(pp<80){
+document.getElementById("sL"+id).classList.remove('displayBlock');
+
+}else{
+document.getElementById("sL"+id).classList.add('displayBlock');
+
+}
+
+});
+
+</script>
+
+<style>
+
+.displayBlock{
+
+display: block!important;
+}
+
+.displayNone{
+
+display: none;
+}
+
+.scroller{
+position: absolute;
+right: -18px;
+top: 50%;
+
+background: white;
+border-radius: 49%;
+border: 0px;
+cursor: pointer;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+line-height: 44px;
+text-align: center;
+}
+
+
+.lefter{
+right: none;
+left: -14px;
+display: none;
+}
+
+.scroller:focus,.scroller:hover{
+background: #fff;
+outline:0;
+}
+
+.reviewBox{
+position: relative;
+}
+
+
+@media screen and (min-width: 500px){
+.fac-container {
+    padding: 15px;
+    padding-right: 25px;
+}
+}
+
+.shopeVote{
+float: right;
+}
+.shopeVote .votel{
+    padding-top: 5px;
+    padding-bottom: 6px;
+    margin-top: -2px;
+    
+margin-left: 4px;
+
+
+}
+
+.foodName a{
+color: #444;
+font-weight: bold;
+
+}
+
+*{
+background-repeat: none;
+}
+
+.foodName{
+margin-bottom: 10px;
+
+}
+.shopName{
+margin: 6px;
+margin-left: 5px;
+    opacity: .9;
+}
+.shopName span{
+
+display: block;
+background: #beecff;
+margin: auto;
+padding-top: 7px;
+font-weight: bold;
+font-size: 22px;
+width: 52px;
+height: 52px;
+text-align: center;
+vertical-align: middle;
+border-radius: 50%;
+border: 7px solid #f5f5f5;
+    float: left;
+    margin-top: -6px;
+    box-shadow: inset 0 0px 4px rgba(85, 62, 62, 0.47),
+0 0 2px rgba(85, 62, 62, 0.47);
+}
+
+.fac-container {
+    overflow: hidden;
+}
+
+.shopName h3 {
+    display: block;
+    padding:8px;
+padding-bottom: 8px;
+    padding-left: 40px;
+
+    background: #f9f9f9;
+
+    margin-left: 20px;
+    padding-right: 10px;
+    margin-bottom: 15px;
+
+font-size: 17px;
+line-height: 24px;
+border-radius: 4px;
+
+    box-shadow: inset 0 0px 3px 0px rgba(0,0,0,0.15);
+color: #444;
+}
+
+.thumbnail img{width: 100%}
+
+.thumbnail{
+height: 150px;
+overflow: hidden;
+}
+
+.foodItem{
+position: relative;
+max-width: 150px;
+margin: 0.5%; 
+border-radius: 4px; 
+overflow: hidden; 
+background: #fff; 
+display: inline-block;
+margin-bottom: 15px;
+
+border: 1px solid #e5e5e5;
+box-shadow: ;
+}
+
+@media screen and (max-width:500px){
+
+.thumbnail{
+
+} 
+
+
+.foodItem{
+margin: 1%;
+max-width: 44%;
+min-width: 140px;
+}
+
+}
+
+.foodScroll{
+
+overflow-x: scroll;
+white-space: nowrap;
+margin-bottom: 15px;
+}
+
+
+
+
+
+.dislike:before{
+
+ transform: scaleY(-1) !important;
+margin-top: 0px;
+    margin-bottom: -2px;
+
+}
+
+.commentIcon{
+    background: grey;
+    padding: 6px 8px 7px 9px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.like{
+backgroundd: #228ae6;
+padding-right: 7px;
+}
+
+.dislike{
+
+background: #ef5a6d;
+padding-right: 7px;
+}
+.foodItem{
+
+}
+
+
+.votel,.commentIcon{
+
+baackground: #1ab6b4;
+
+background: #f5f5f5;
+box-shadow: inset 0px 0px 1px 0px rgba(0,0,0,0.18);
+
+color: #555;
+
+
+
+}
+
+.votel:before{
+background-image: none;
+display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+content: "\f087";
+}
+
+</style>
+
+
+<script>
+function svote(a){
+var myLink = a.getAttribute('href');
+var htext = a.innerHTML;
+var votez = htext.replace(/[^0-9]/g,'');
+var vclass= a.classList;
+if(vclass.contains("voted")){
+a.classList.remove('voted');
+votez--;
+a.innerHTML = votez;
+myLink = myLink.replace(/vote.php/g,'votedown.php');
+var xhr;
+var loadUrl = function(url) {
+    if ( xhr && xhr.readyState > 0 && xhr.readyState < 4 ) {
+        xhr.abort();    
+    }
+    xhr = $.get(url, function() {
+        console.log('success', this);
+    });
+};
+loadUrl(myLink);
+
+} else
+{
+votez++;
+a.innerHTML = votez;
+a.classList.add('voted');
+var xhr;
+var loadUrl = function(url) {
+    if ( xhr && xhr.readyState > 0 && xhr.readyState < 4 ) {
+        xhr.abort();    
+    }
+    xhr = $.get(url, function() {
+        console.log('success', this);
+    });
+};
+loadUrl(myLink);
+}
+}
+</script>
+<script>
+function showy(gid){
+var gclass = document.getElementById("f"+gid).classList;
+if(gclass == "facrow"){
+document.getElementById("f"+gid).classList.remove('facrow');
+document.getElementById("m"+gid).innerHTML="Show Less";
+}
+else {
+document.getElementById("f"+gid).classList.add('facrow');
+document.getElementById("m"+gid).innerHTML="Show More";
+}
+}
+</script>
+<script>
+function show(gid){
+var content = document.getElementById("f"+gid).classList;
+if(content.contains("show")){
+document.getElementById("f"+gid).classList.remove("show");
+setTimeout(function(){
+document.getElementById("m"+gid).innerHTML="Show More";
+}, 200);
+}
+else {
+document.getElementById("f"+gid).classList.add('show');
+setTimeout(function(){
+document.getElementById("m"+gid).innerHTML="Show Less";
+}, 200);
+}
+}
+</script>
+
+<script>
+   var alerted = localStorage.getItem('alerteddddz') || '';
+        if (alerted != 'yes') {
+          document.getElementById("dial").style.display="block";
+         localStorage.setItem('alerteddddz','yes');
+        }
+ setTimeout(
+    function() {
+      document.getElementById("dial").style.display="none";
+    }, 8000);
+</script>
+<?
+
+echo '<div style="clear: both"></div><div class="pag">';
+echo $show_pages;
+echo '</div>';
+}
+
+
+?>
+
+</div>
+
+</div>
+<div class="sidebarb">
+
+<?php
+
+include '../addcoursebar.php';
+
+?>
+<div class="addcontainer bar1 shadow">
+<h2>Disclaimer</h2>NSUer.Club is a poll website faculties of NSU. The ranking of faculties are determined by the count of votes given by students. Ranking doesn't mean to disrespect any faculty members.
+</div></div><div style="clear: both"></div></div>
+<?php
+include'../foot.php';
+
+?>

@@ -1,0 +1,12 @@
+{
+  "current": [
+    {
+      "title": "Light fog",
+      "time": "2019-12-27T22:55:00+06:00",
+      "icon": 11,
+      "temp": "17",
+      "realfeel": "16",
+      "forecast": "[{\"min\":\"13\",\"max\":\"20\",\"icon\":4,\"date\":\"2019-12-27T07:00:00+06:00\",\"title\":\"Intermittent clouds\"},{\"min\":\"11\",\"max\":\"24\",\"icon\":5,\"date\":\"2019-12-28T07:00:00+06:00\",\"title\":\"Hazy sunshine\"},{\"min\":\"12\",\"max\":\"26\",\"icon\":5,\"date\":\"2019-12-29T07:00:00+06:00\",\"title\":\"Hazy sunshine\"},{\"min\":\"14\",\"max\":\"26\",\"icon\":5,\"date\":\"2019-12-30T07:00:00+06:00\",\"title\":\"Hazy sunshine\"},{\"min\":\"16\",\"max\":\"27\",\"icon\":5,\"date\":\"2019-12-31T07:00:00+06:00\",\"title\":\"Hazy sunshine\"}]"
+    }
+  ]
+}

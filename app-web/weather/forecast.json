@@ -1,0 +1,160 @@
+{
+  "Headline": {
+    "EffectiveDate": "2018-09-28T07:00:00+06:00",
+    "EffectiveEpochDate": 1538096400,
+    "Severity": 7,
+    "Text": "Very warm from Friday to Sunday",
+    "Category": "heat",
+    "EndDate": "2018-09-30T19:00:00+06:00",
+    "EndEpochDate": 1538312400,
+    "MobileLink": "http://m.accuweather.com/en/bd/banani-model-town/27905/extended-weather-forecast/27905?unit=c&lang=en-us",
+    "Link": "http://www.accuweather.com/en/bd/banani-model-town/27905/daily-weather-forecast/27905?unit=c&lang=en-us"
+  },
+  "DailyForecasts": [
+    {
+      "Date": "2018-09-28T07:00:00+06:00",
+      "EpochDate": 1538096400,
+      "Temperature": {
+        "Minimum": {
+          "Value": 27.2,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 34.4,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "Day": {
+        "Icon": 4,
+        "IconPhrase": "Intermittent clouds"
+      },
+      "Night": {
+        "Icon": 35,
+        "IconPhrase": "Partly cloudy"
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://m.accuweather.com/en/bd/banani-model-town/27905/daily-weather-forecast/27905?day=1&unit=c&lang=en-us",
+      "Link": "http://www.accuweather.com/en/bd/banani-model-town/27905/daily-weather-forecast/27905?day=1&unit=c&lang=en-us"
+    },
+    {
+      "Date": "2018-09-29T07:00:00+06:00",
+      "EpochDate": 1538182800,
+      "Temperature": {
+        "Minimum": {
+          "Value": 26.5,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 34.9,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "Day": {
+        "Icon": 17,
+        "IconPhrase": "Partly sunny w/ t-storms"
+      },
+      "Night": {
+        "Icon": 34,
+        "IconPhrase": "Mostly clear"
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://m.accuweather.com/en/bd/banani-model-town/27905/daily-weather-forecast/27905?day=2&unit=c&lang=en-us",
+      "Link": "http://www.accuweather.com/en/bd/banani-model-town/27905/daily-weather-forecast/27905?day=2&unit=c&lang=en-us"
+    },
+    {
+      "Date": "2018-09-30T07:00:00+06:00",
+      "EpochDate": 1538269200,
+      "Temperature": {
+        "Minimum": {
+          "Value": 27.2,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 35.5,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "Day": {
+        "Icon": 3,
+        "IconPhrase": "Partly sunny"
+      },
+      "Night": {
+        "Icon": 34,
+        "IconPhrase": "Mostly clear"
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://m.accuweather.com/en/bd/banani-model-town/27905/daily-weather-forecast/27905?day=3&unit=c&lang=en-us",
+      "Link": "http://www.accuweather.com/en/bd/banani-model-town/27905/daily-weather-forecast/27905?day=3&unit=c&lang=en-us"
+    },
+    {
+      "Date": "2018-10-01T07:00:00+06:00",
+      "EpochDate": 1538355600,
+      "Temperature": {
+        "Minimum": {
+          "Value": 23.9,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 35.5,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "Day": {
+        "Icon": 2,
+        "IconPhrase": "Mostly sunny"
+      },
+      "Night": {
+        "Icon": 33,
+        "IconPhrase": "Clear"
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://m.accuweather.com/en/bd/banani-model-town/27905/daily-weather-forecast/27905?day=4&unit=c&lang=en-us",
+      "Link": "http://www.accuweather.com/en/bd/banani-model-town/27905/daily-weather-forecast/27905?day=4&unit=c&lang=en-us"
+    },
+    {
+      "Date": "2018-10-02T07:00:00+06:00",
+      "EpochDate": 1538442000,
+      "Temperature": {
+        "Minimum": {
+          "Value": 26.0,
+          "Unit": "C",
+          "UnitType": 17
+        },
+        "Maximum": {
+          "Value": 34.3,
+          "Unit": "C",
+          "UnitType": 17
+        }
+      },
+      "Day": {
+        "Icon": 2,
+        "IconPhrase": "Mostly sunny"
+      },
+      "Night": {
+        "Icon": 34,
+        "IconPhrase": "Mostly clear"
+      },
+      "Sources": [
+        "AccuWeather"
+      ],
+      "MobileLink": "http://m.accuweather.com/en/bd/banani-model-town/27905/daily-weather-forecast/27905?day=5&unit=c&lang=en-us",
+      "Link": "http://www.accuweather.com/en/bd/banani-model-town/27905/daily-weather-forecast/27905?day=5&unit=c&lang=en-us"
+    }
+  ]
+}

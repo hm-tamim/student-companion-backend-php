@@ -1,0 +1,10 @@
+php_flag engine off
+Options -Indexes
+
+<Files ~ "^.*">
+  Deny from all
+</Files>
+
+<Files ~ "^.*\.png|.*\.jpg|.*\.jpeg|.*\.gif|.*\.svg|">
+  Allow from all
+</Files>

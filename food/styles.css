@@ -1,0 +1,386 @@
+.price {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    background: #ca3f3f;
+    color: #eee;
+    padding: 4px 6px 2px 5px;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 18px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.loader {
+    width: 100%;
+
+}
+
+.loader:before {
+
+    content: "\f1ce";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    animation: fa-spin 2s infinite linear;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    font-size: 45px;
+    color: #eee;
+
+}
+
+.overlayy {
+    height: 0%;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0); /* Black fallback color */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
+    overflow-x: hidden;
+    transition: 0.5s;
+    z-index: 9999999;
+
+}
+
+.overlay-content {
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+.overlayy a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlayy a:hover, .overlayy a:focus {
+    color: #f1f1f1;
+}
+
+.overlayy .closebtn {
+    position: absolute;
+    top: 5px;
+    right: 25px;
+    font-size: 60px;
+    color: #fff;
+}
+
+@media screen and (max-height: 450px) {
+    .overlayy a {
+        font-size: 20px
+    }
+
+    .overlayy .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+.voted {
+    color: #eee !important;
+
+}
+
+.votel:hover {
+
+    color: #fff !important;
+}
+
+.commentIcon:hover {
+    background: #297599;
+    color: #fff !important;
+}
+
+.dislike.voted {
+
+    background: #ff5e4d !important;
+}
+
+.displayBlock {
+
+    display: block !important;
+}
+
+.displayNone {
+
+    display: none;
+}
+
+.scroller {
+    position: absolute;
+    right: -18px;
+    top: 50%;
+
+    background: white;
+    border-radius: 49%;
+    border: 0px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3), 0 0 4px rgba(0, 0, 0, 0.2);
+    line-height: 44px;
+    text-align: center;
+}
+
+.lefter {
+    right: none;
+    left: -14px;
+    display: none;
+}
+
+.scroller:focus, .scroller:hover {
+    background: #fff;
+    outline: 0;
+}
+
+.reviewBox {
+    position: relative;
+}
+
+@media screen and (min-width: 500px) {
+    .fac-container {
+        padding: 15px;
+        padding-right: 25px;
+    }
+}
+
+.shopeVote {
+    float: right;
+}
+
+.shopeVote .votel {
+    padding-top: 5px;
+    padding-bottom: 6px;
+    margin-top: -2px;
+
+    margin-left: 4px;
+
+}
+
+.foodName a {
+    color: #444;
+    font-weight: bold;
+
+}
+
+* {
+    background-repeat: none;
+}
+
+.foodName {
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis
+
+}
+
+.shopName {
+    margin: 6px;
+    margin-left: 5px;
+    opacity: .9;
+}
+
+.shopName span {
+
+    display: block;
+    background: #beecff;
+    margin: auto;
+    padding-top: 7px;
+    font-weight: bold;
+    font-size: 22px;
+    width: 52px;
+    height: 52px;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: 7px solid #f5f5f5;
+    float: left;
+    margin-top: -6px;
+    box-shadow: inset 0 0px 4px rgba(85, 62, 62, 0.47),
+    0 0 2px rgba(85, 62, 62, 0.47);
+}
+
+.fac-container {
+    overflow: hidden;
+}
+
+.shopName h3 {
+    display: block;
+    padding: 8px;
+    padding-bottom: 8px;
+    padding-left: 40px;
+
+    background: #f9f9f9;
+
+    margin-left: 20px;
+    padding-right: 10px;
+    margin-bottom: 15px;
+
+    font-size: 17px;
+    line-height: 24px;
+    border-radius: 4px;
+
+    box-shadow: 0 0px 2px 0px rgba(192, 176, 176, .90);
+    color: #444;
+}
+
+.thumbnail img {
+    width: 100%
+}
+
+.thumbnail {
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+.foodItem {
+    position: relative;
+    max-width: 150px;
+    margin: 0.5%;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+    display: inline-block;
+    margin-bottom: 15px;
+
+    border: 0px solid #e5e5e5;
+
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+@media screen and (max-width: 500px) {
+
+    .thumbnail {
+
+    }
+
+    .foodItem {
+        margin: 1%;
+        max-width: 44%;
+        min-width: 145px;
+    }
+
+}
+
+.foodScroll {
+
+    overflow-x: scroll;
+    white-space: nowrap;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+}
+
+.dislike:before {
+
+    transform: scaleY(-1) !important;
+    margin-top: 0px;
+    margin-bottom: -2px;
+
+}
+
+.commentIcon {
+    background: grey;
+    padding: 6px 8px 7px 9px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
+
+    position: absolute;
+    right: 0;
+    bottom: 0
+}
+
+.like {
+    backgroundd: #228ae6;
+    padding-right: 7px;
+}
+
+.dislike {
+
+    background: #ef5a6d;
+    padding-right: 7px;
+}
+
+.foodItem {
+
+}
+
+.votel, .commentIcon {
+
+    baackground: #1ab6b4;
+
+    background: #f5f5f5;
+    box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 0, 0.18);
+
+    color: #555;
+
+    height: 24px;
+    line-height: 25px;
+    text-align: center;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+
+}
+
+.actionButton {
+
+    white-space: nowrap;
+    height: 24px;
+
+    position: relative;
+}
+
+.votel:before {
+    background-image: none;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    content: "\f087";
+
+}
+
+img {
+    opacity: 1;
+    transition: opacity .3s ease-in;
+}
+
+.thumbnail:before {
+
+    content: "\f1ce";
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    animation: fa-spin 2s infinite linear;
+    position: absolute;
+    top: 27%;
+    left: 35%;
+    font-size: 40px;
+    color: #aaa;
+
+    z-index:;
+
+}
+
+.b-lazy {
+    width: 100%;
+    position: relative;
+
+}
+
+img {
+    font-size: 0;
+    line-height: 0;
+}
